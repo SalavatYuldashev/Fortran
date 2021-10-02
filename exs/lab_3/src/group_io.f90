@@ -15,7 +15,7 @@ module Group_IO
    end type student
 
 contains
-   ! Чтение списка класса: фамилии, инициалы, полы и оценки.
+   ! Чтение списка класса: фамилия
    function Read_list(Input_File, format) result(Class_List)
       type(student), pointer     :: Class_List
       character(*), intent(in)   :: Input_File, format
@@ -49,7 +49,7 @@ contains
       end if
    end function Read_student
 
-   ! Вывод списка класса со средним баллом или без него.
+   ! Вывод списка класса с номерами или без них.
    subroutine Output_class_list(Output_File, Class_List, List_Name, Position, Index)
       character(*), intent(in)   :: Output_File, Position, List_Name
       type(student), intent(in)  :: Class_List
@@ -66,6 +66,7 @@ contains
       close (Out)
    end subroutine Output_class_list
 
+   ! Вывод одного студента без номера
    recursive subroutine Output_student(Out, Stud)
       integer, intent(in)         :: Out
       type(student), intent(in)   :: Stud
@@ -80,6 +81,7 @@ contains
          call Output_student(Out, Stud%next)
    end subroutine Output_student
    
+   ! Вывод одного студента с номером
    recursive subroutine Output_student_with_number(Out, Stud, Number)
       integer, intent(in)         :: Out, Number
       type(student), intent(in)   :: Stud

@@ -6,6 +6,8 @@ module Source_Process
    implicit none
 
 contains
+
+   ! Индекс вхождения подстроки B в строку A
    pure function Substring_Position(A, B) result(pos)
       integer                       :: pos
       type(SourceLine), intent(in)  :: A

@@ -10,6 +10,7 @@ module Group_Process
    implicit none
 
 contains
+   ! Вставка всех элементов списка F2 в упорядоченный список F1
    pure recursive subroutine Insert(F1, F2)
       type(student), pointer :: F1, F2
 	  
@@ -19,6 +20,7 @@ contains
       end if
    end subroutine Insert
 
+   ! Вставка одного студента в упорядоченный список
    pure recursive subroutine Insert_Item(Stud, List)
       type(student), intent(in)     :: Stud
       type(student), pointer        :: List
@@ -39,6 +41,7 @@ contains
       end if
     end subroutine Insert_Item
 
+    ! Удаление списка
     pure recursive subroutine Remove_List(List)
        type(student), pointer        :: List
 	   
